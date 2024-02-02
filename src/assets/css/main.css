@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container-nav {
+  @apply w-full max-w-[1540px] pl-[15px] pr-[15px] mr-auto ml-auto;
+}
