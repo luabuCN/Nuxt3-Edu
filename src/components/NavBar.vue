@@ -20,7 +20,7 @@
         </client-only>
 
       </div>
-      <DarkOrLight class=" float-right" />
+      <DarkOrLight class=" absolute right-8" />
     </div>
   </div>
   <div class=" w-full h-[80px]"></div>
