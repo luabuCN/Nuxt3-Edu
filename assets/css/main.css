@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container-nav {
+  @apply w-full max-w-[1140px] pl-[15px] pr-[15px] mr-auto ml-auto;
+}
+
+body {
+  @apply p-0 m-0;
+}

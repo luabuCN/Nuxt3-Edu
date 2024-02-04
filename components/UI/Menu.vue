@@ -1,6 +1,6 @@
 <template>
-  <div>
-    list
+  <div class="flex items-center justify-center px-4">
+    <slot />
   </div>
 </template>
 
