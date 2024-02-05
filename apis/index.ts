@@ -1,5 +1,5 @@
 import httpRequest, { type ResultType } from "../composables/useHttp";
-
+import { useUrlParams } from "../composables/useUtil";
 export interface IIndexData {
   logo?: string;
   data: IIndxItemData[];
@@ -41,6 +41,23 @@ export interface IGroupParams {
   usable?: 0 | 1;
   limit?: number;
 }
+
+export interface IGroupData {
+  count: number;
+  rows: Rows[];
+}
+
+export interface Rows {
+  group_id: number;
+  id: number;
+  title: string;
+  cover: string;
+  price: string;
+  t_price: string;
+  type: string;
+  start_time: string;
+  end_time: string;
+}
 //首页信息
 export function useIndexDataApi() {
   return httpRequest.get<ResultType<IIndexData[]>>("/index");
@@ -48,5 +65,6 @@ export function useIndexDataApi() {
 
 //拼团信息
 export function useGroupDataApi(params: IGroupParams) {
-  return httpRequest.get("/group");
+  let query = useUrlParams(params);
+  return httpRequest.get<ResultType<IGroupData>>(`/group/list${query}`);
 }

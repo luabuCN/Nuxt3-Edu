@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-item" :class="{ 'menu-item-active': active }">
+  <div class="menu-item " :class="{ 'menu-item-active': active }">
     <slot />
   </div>
 </template>
@@ -17,7 +17,7 @@ defineProps({
 
 <style scoped>
 .menu-item {
-  @apply px-2 py-1 mx-1 hover:bg-blue-100 hover:text-blue-600 cursor-pointer rounded active:bg-blue-300 transition-all duration-300
+  @apply dark:text-white px-2 py-1 mx-1 hover:bg-blue-100 hover:text-blue-600 cursor-pointer rounded active:bg-blue-300 transition-all duration-300
 }
 
 .menu-item-active {
