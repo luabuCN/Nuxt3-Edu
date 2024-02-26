@@ -1,11 +1,10 @@
 <template>
-  <div class="flex items-center justify-center px-4">
-    <slot />
-  </div>
+    <div class="menu">
+        <slot/>
+    </div>
 </template>
-
-<script setup lang="ts">
-
-</script>
-
-<style scoped></style>
+<style>
+.menu {
+    @apply flex items-center px-4;
+}
+</style>

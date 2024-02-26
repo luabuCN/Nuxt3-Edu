@@ -1,27 +1,29 @@
+<!-- 首页图片分类 -->
 <template>
-  <el-row :gutter="20" class="mb-6">
-    <el-col :span="6" v-for="item in props.data" :key="item.src">
-      <el-card class=" cursor-pointer" :body-style="{ padding: '0px' }" @click="$commonOpen(item)">
-        <img :src="item.src" class="w-[100%] h-[150px]">
-        <div class=" dark:bg-dark dark:text-white text-center py-5" style="margin-top: -5px;">{{ item.name }}</div>
-      </el-card>
-    </el-col>
-  </el-row>
+    <n-grid x-gap="12" :cols="4" class="mb-6">
+        <n-gi v-for="(item,index) in data" :key="item">
+            <n-card class="cursor-pointer" @click="$commonOpen(item)">
+                <template #cover>
+                    <img :src="item.src" class="w-[100%] h-[115px]">
+                </template>
+                <div class="text-center pt-4">
+                    {{item.name}}
+                </div>
+            </n-card>
+        </n-gi>
+    </n-grid>
 </template>
+<script setup>
+import {
+    NGrid,
+    NGi,
+    NCard,
+} from "naive-ui"
 
-<script setup lang="ts">
-import type { IIndxItemData } from '../apis/index'
-interface IProps {
-  data: Array<IIndxItemData>;
-}
-
-const props = defineProps<IProps>()
-
-
+defineProps({
+    data: {
+        type: Array,
+        default: () => []
+    }
+})
 </script>
-
-<style scoped>
-:deep(.el-card__footer) {
-  border-top: none;
-}
-</style>

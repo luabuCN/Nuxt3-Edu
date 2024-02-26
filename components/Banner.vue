@@ -1,19 +1,31 @@
+<!-- 首页轮播图 -->
 <template>
-  <el-carousel :interval="5000" arrow="always" class=" mb-6" autoplay>
-    <el-carousel-item v-for="item in props.data" :key="item.src" @click="$commonOpen(item)">
-      <img :src="item.src" alt="" />
-    </el-carousel-item>
-  </el-carousel>
+    <n-carousel show-arrow class="mb-6">
+        <img v-for="(item,index) in data" :key="item"
+        class="carousel-img rounded cursor-pointer"
+        :src="item.src"
+        @click="$commonOpen(item)"
+        >
+    </n-carousel>
 </template>
+<script setup>
+import {
+    NCarousel
+} from "naive-ui"
 
-<script setup lang="ts">
-import type { IIndxItemData } from '../apis/index'
-interface IProps {
-  data: Array<IIndxItemData>;
+defineProps({
+    data:Array
+})
+const open = (item)=>{
+    if(item.type == "webview"){
+        window.open(item.url)
+    }
 }
-
-const props = defineProps<IProps>()
-
 </script>
-
-<style scoped></style>
+<style scoped>
+.carousel-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+</style>
